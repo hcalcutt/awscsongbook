@@ -237,3 +237,99 @@ h2.section-title, h3 {
             border-radius: 5px;
             z-index: 10;
         }
+/* The container for the image */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 20px;
+}
+
+.clickable {
+    cursor: pointer;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.image-item {
+    position: relative;
+}
+
+.expanded-image-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -15px;
+    width: 100%;
+    z-index: 1;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Lyrics Panel */
+.lyrics-panel {
+    position: fixed;
+    top: 10%; /* Adjust top position to create more space above */
+    right: 10px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none;
+    max-height: 80vh; /* Prevent overflow */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+.lyrics {
+    margin-bottom: 20px;
+}
+
+.lyrics h3 {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+/* Close Button Styling */
+#close-lyrics-panel {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    left: 50%; /* Ensure button is positioned inside the panel */
+    transform: translateX(-50%); /* Centering correction */
+    z-index: 1010; /* Ensure it's above other elements */
+}
+
+#close-lyrics-panel:hover {
+    background-color: #d32f2f;
+}
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    /* Adjusting the position and size of the close button on mobile */
+    #close-lyrics-panel {
+        font-size: 14px; /* Smaller font size */
+        padding: 8px 16px; /* Adjust padding */
+        bottom: 1px; /* Keep button at the bottom */
+    }
+       .lyrics-panel {
+        width: 80%; /* Make the panel width smaller on mobile */
+        max-height: 70vh; /* Allow more space for other elements */
+    }
+}
+/* Ensure overflow content on the lyrics panel is scrollable */
+.lyrics-panel .lyrics {
+    max-height: 60vh; /* Ensure lyrics are scrollable if the content is too long */
+    overflow-y: auto;
+}
+
