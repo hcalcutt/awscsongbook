@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsenal Women Songbook</title>
+    <style>
+        /* The container for the image */
+        .image-container {
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: flex-start; /* Align the image to the top */
+    min-height: 100vh; /* Ensure the container takes full viewport height */
+    margin: 0; /* Reset default margins */
+    padding-top: 20px; /* Optional: Add padding for spacing from the top */
+}
+
+
+        .clickable {
+            cursor: pointer;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Ensure the image container is positioned relatively */
+        .image-item {
+            position: relative;
+        }
+
+        /* Expanded image container */
+        .expanded-image-container {
+         display: none;
+        position: absolute;
+         top: 100%; /* Place it just below the clickable image */
+         left: -15px;
+          width: 100%;
+          z-index: 1;
+          background: white;
+           padding: 1rem;
+           box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+/* Lyrics panel container */
+.lyrics-panel {
+    position: fixed; /* Position fixed on the screen */
+    top: 20%; /* Adjust the top position */
+    right: 10px; /* Position on the right side */
+    width: 300px; /* Set a fixed width for the panel */
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+    z-index: 1000; /* Ensure the panel is above other elements */
+    display: none; /* Hide by default */
+}
+
+/* Style for the individual lyrics */
+.lyrics {
+    margin-bottom: 20px; /* Add space between different song lyrics */
+}
+
+.lyrics h3 {
+    margin-top: 0; /* Remove top margin for the song title */
+}
+
+/* Close button styling */
+#close-lyrics-panel {
+    background-color: #f44336; /* Red color for close button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#close-lyrics-panel:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+
+        /* The image inside the expanded container */
+        .expanded-image-container img {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Make sure the clickable areas are above the text */
+        map area {
+            position: relative;
+            z-index: 20;
+            cursor: pointer;
+        }
+
+        /* Make sure the overlay is hidden until activated */
+        .expanded-image-container.active {
+            display: block;
+        }
+
+        /* Dim the areas a little on hover */
+        area:hover {
+            opacity: 0.7;
+        }
+
+        .expanded-image-container .overlay-text {
+            position: absolute;
+            top: 14%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(0, 0, 0, 0);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 10;
+        }
+        .lyrics-panel {
+            position: fixed;
+            top: 20%;
+            right: 10px;
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            font-family: 'Roboto', sans-serif; /* Default font for the panel */
+        }
+
+        .lyrics {
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif; /* Font for the lyrics */
+            line-height: 1.6; /* Increase line height for readability */
+        }
+
+        .lyrics h3 {
+            margin-top: 0;
+            font-weight: 600; /* Bold the song title */
+            font-size: 20px;
+        }
+
+        #close-lyrics-panel {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif; /* Use Roboto for the button */
+        }
+
+        #close-lyrics-panel:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <div class="image-item">
+            <!-- Image that can be clicked to expand -->
+            
+            <img src="../../images/cassettearsenalsongbook.png" alt="Click to expand" class="clickable" onclick="toggleImage('expandedarsenal', event); toggleSongList()" usemap="#image-map1">
+
+            <!-- Expanded image container -->
+            <div id="expandedarsenal" class="expanded-image-container">
+                <img src="../../images/paper_arsenal.jpg" usemap="#image-map1" alt="Expanded view">
+                
+                <!-- Image map with clickable area -->
+                <map name="image-map1">
+                    <!-- Define clickable areas on the image -->
+                   
+                    <area shape="rect" coords="4,61,266,82" href="#" alt="Manu" target="_blank" onclick="playSound('soundmanu', event)">
+                    <area shape="rect" coords="4,100,266,121" href="#" alt="Fox" target="_blank" onclick="playSound('soundfox', event);">
+                    <area shape="rect" coords="4,139,266,160" href="#" alt="Lotte" target="_blank" onclick="playSound('soundlotte', event)">
+                    <area shape="rect" coords="4,178,266,199" href="#" alt="Codina" target="_blank" onclick="playSound('soundcodina', event)">
+                    <area shape="rect" coords="4,217,266,238" href="#" alt="Williamson" target="_blank" onclick="playSound('soundwilliamson', event)">
+                    <area shape="rect" coords="4,256,266,277" href="#" alt="Catley" target="_blank" onclick="playSound('soundcatley', event)">             
+                    <area shape="rect" coords="4,295,266,315" href="#" alt="Caldentey" target="_blank" onclick="playSound('soundcaldentey', event); showLyrics('song1');">
+                    <area shape="rect" coords="4,333,266,354" href="#" alt="Little" target="_blank" onclick="playSound('soundlittle', event)">
+                    <area shape="rect" coords="4,362,266,381" href="#" alt="Caitlin Foord" target="_blank" onclick="playSound('soundfoord', event)">
+                </map>
+            </div>
+        </div>
+    </div>
+<!-- Lyrics Section -->
+     <!-- Lyrics Section -->
+     <div id="lyrics-panel" class="lyrics-panel">
+        <div id="song1-lyrics" class="lyrics" style="display:none;">
+            <h3>Mariona Caldentey Lyrics</h3>
+            <p><strong>To the Tune of Twist and Shout – The Beatles</strong><br>
+
+                Aaaaaaah Aaaaaaaaahhhh Aaaaaaaaaahhhhh AAAAAAAAAAAAAH!<br>
+                
+                Shake it Caldentey now<br>
+                (Shake it Caldentey)<br>
+                Twist and shout <br>
+                (twist and shout)<br>
+                Come on come on Caldentey now<br> 
+                (come on Caldentey)<br>
+                Work it on out <br>
+                (work it on out)<br>
+                
+                You know you twist so good,<br>
+                (Twist so good),<br>
+                You know you twist so fine,<br> 
+                (Twist so fine)<br>
+                Come on come on come on Caldentey now <br>
+                (come on Caldentey)<br>
+                And let me know that you’re mine<br> 
+                (Let me know you’re mine)<br>
+                
+                </p> <!-- Placeholder text until lyrics are fetched -->
+        </div>
+        
+        <div id="song2-lyrics" class="lyrics" style="display:none;">
+            <h3>Song 2 Lyrics</h3>
+            <p>Lyrics for song 2 go here...</p>
+        </div>
+        <div id="song3-lyrics" class="lyrics" style="display:none;">
+            <h3>Song 3 Lyrics</h3>
+            <p>Lyrics for song 3 go here...</p>
+        </div>
+        <!-- Optional close button -->
+        <button id="close-lyrics-panel" onclick="closeLyricsPanel()">Close</button>
+    </div>
+    
+    <div id="song-list" style="display:none;">
+        <ul>
+            <li onclick="showLyrics('song1')">Song 1</li>
+            <li onclick="showLyrics('song2')">Song 2</li>
+            <li onclick="showLyrics('song3')">Song 3</li>
+        </ul>
+    </div>
+    <script>
+        // This function handles the toggling of the expanded image
+        function toggleImage(imageId, event) {
+            event.stopPropagation();
+            
+            const expandedImages = document.querySelectorAll('.expanded-image-container');
+            expandedImages.forEach(img => img.classList.remove('active'));
+            
+            const targetImage = document.getElementById(imageId);
+            targetImage.classList.toggle('active');
+
+            // Stop sound when the image is expanded
+            stopSound();
+        }
+
+        // This function plays the sound when the area is clicked
+        function playSound(soundId, event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Stop any currently playing audio
+            stopSound();
+
+            const audio = document.getElementById(soundId);
+            if (audio) {
+                audio.currentTime = 0;
+                audio.play();
+            } else {
+                console.error(`Audio element with id "${soundId}" not found.`);
+            }
+        }
+
+        // This function stops the sound
+        function stopSound() {
+            const audios = document.querySelectorAll('audio');
+            audios.forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        }
+
+        // Close the expanded image and stop sound when clicking outside of it
+        window.addEventListener('click', function(event) {
+            const expandedImage = document.querySelector('.expanded-image-container.active');
+            if (expandedImage && !expandedImage.contains(event.target)) {
+                expandedImage.classList.remove('active');
+                stopSound();
+            }
+        });
+
+        // Prevent the click on the expanded image from closing it
+        document.querySelector('.expanded-image-container').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+   
+     
+      
+     
+   
+        // Function to show the lyrics for the selected song
+       // Function to show the lyrics panel
+       function showLyrics(song) {
+    // Hide all lyrics first
+    const allLyrics = document.querySelectorAll('.lyrics');
+    allLyrics.forEach(lyric => {
+        lyric.style.display = 'none';
+    });
+
+    // Show the selected song's lyrics
+    const selectedLyrics = document.getElementById(song + '-lyrics');
+    if (selectedLyrics) {
+        selectedLyrics.style.display = 'block';
+    }
+
+    // Fetch lyrics for song 1 from the text file and insert them dynamically
+    if (song === 'song1') {
+        fetch('./lyrics/song1-lyrics.txt')
+            .then(response => response.text())
+            .then(data => {
+                selectedLyrics.querySelector('p').innerText = data;
+            })
+            .catch(error => {
+                console.error('Error fetching lyrics:', error);
+            });
+    }
+
+    // Show the lyrics panel
+    const lyricsPanel = document.getElementById('lyrics-panel');
+    lyricsPanel.style.display = 'block';
+}
+
+
+
+// Function to close the lyrics panel
+function closeLyricsPanel() {
+    const lyricsPanel = document.getElementById('lyrics-panel');
+    lyricsPanel.style.display = 'none';
+}
+
+    </script>
+
+    <!-- Audio Elements -->
+    <audio id="soundfoord" src="../../sounds/caitlinfoordchant.mp3"></audio>
+    <audio id="soundcaldentey" src="../../sounds/caldenteychant.mp3"></audio>
+    <audio id="soundlittle" src="../../sounds/littlechant.mp3"></audio>
+    <audio id="soundwilliamson" src="../../sounds/williamsonhant.mp3"></audio>
+    <audio id="soundfox" src="../../sounds/foxchant.mp3"></audio>
+    <audio id="soundcatley" src="../../sounds/catleychant.mp3"></audio>
+    <audio id="soundfoord2" src="../../sounds/caitlinfoord2chant.mp3"></audio>
+    <audio id="soundmccabe" src="../../sounds/mccabechant.mp3"></audio>
+    <audio id="soundlotte" src="../../sounds/lottechant.mp3"></audio>
+    <audio id="soundmau" src="../../sounds/manuchant.mp3"></audio>
+    <audio id="soundmead" src="../../sounds/meadchant.mp3"></audio>
+    <audio id="soundrusso" src="../../sounds/russochant.mp3"></audio>
+
+</body>
+</html>

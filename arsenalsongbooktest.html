@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Songbook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container for cassette image */
+        .image-container {
+            margin-top: 100px;
+        }
+
+        /* Cassette tape image */
+        .cassette-image {
+            width: 200px;
+            cursor: pointer;
+        }
+
+        /* Song list (Piece of Paper) */
+        .song-list {
+            display: none; /* Initially hidden */
+            position: absolute;
+            top: 200px;
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        /* Song list items */
+        .song-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .song-list li {
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+        .song-list li:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Lyrics Container */
+        .lyrics-container {
+            position: absolute;
+            top: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .lyrics {
+            display: none; /* Initially hidden */
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .lyrics h3 {
+            margin-bottom: 20px;
+        }
+
+        /* Transition effects */
+        .song-list, .lyrics-container {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cassette Tape Image -->
+    <div class="image-container">
+        <img src="cassette_image.png" alt="Click to open song list" class="cassette-image" onclick="toggleSongList()">
+    </div>
+
+    <!-- Song List (Piece of Paper) -->
+    <div id="song-list" class="song-list">
+        <ul>
+            <li onclick="showLyrics('song1')">Song 1</li>
+            <li onclick="showLyrics('song2')">Song 2</li>
+            <li onclick="showLyrics('song3')">Song 3</li>
+        </ul>
+    </div>
+
+    <!-- Lyrics Section -->
+    <div id="lyrics" class="lyrics-container">
+        <div id="song1-lyrics" class="lyrics" style="display:none;">
+            <h3>Song 1 Lyrics</h3>
+            <p>Lyrics for song 1 go here...</p>
+        </div>
+        <div id="song2-lyrics" class="lyrics" style="display:none;">
+            <h3>Song 2 Lyrics</h3>
+            <p>Lyrics for song 2 go here...</p>
+        </div>
+        <div id="song3-lyrics" class="lyrics" style="display:none;">
+            <h3>Song 3 Lyrics</h3>
+            <p>Lyrics for song 3 go here...</p>
+        </div>
+    </div>
+
+    <!-- External JavaScript for functionality -->
+    <script>
+        // Function to toggle the visibility of the song list when the cassette image is clicked
+        function toggleSongList() {
+            const songList = document.getElementById('song-list');
+            // Toggle visibility of the song list
+            if (songList.style.display === 'none' || songList.style.display === '') {
+                songList.style.display = 'block';  // Show the song list
+            } else {
+                songList.style.display = 'none';   // Hide the song list
+            }
+        }
+
+        // Function to show the lyrics for the selected song
+        function showLyrics(song) {
+            // Hide all lyrics first
+            const allLyrics = document.querySelectorAll('.lyrics');
+            allLyrics.forEach(lyric => {
+                lyric.style.display = 'none';
+            });
+
+            // Show the selected song's lyrics
+            const selectedLyrics = document.getElementById(song + '-lyrics');
+            selectedLyrics.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
