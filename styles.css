@@ -1,0 +1,239 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    margin: 20px; /* Add a margin around the content */
+    padding: 0;
+}
+
+/* Title Styling */
+h1.title {
+    font-size: 56px; /* Make the title larger */
+    font-weight: 700; /* Bold */
+}
+
+/* Pronunciation, Team Guide, and Common Mispronounced */
+h2.section-title, h3 {
+    font-size: 32px; /* Make them slightly smaller than the title */
+    font-weight: 700; /* Make them bold */
+}
+
+/* Remove border and spacing between buttons */
+.buttons a {
+    text-decoration: none; /* Removes the underline from links */
+}
+
+.section-button {
+    background-color: black; /* Black background */
+    color: white;             /* White text */
+    padding: 15px 30px;       /* Padding */
+    border: none;             /* Remove any borders */
+    border-radius: 0;         /* Make the button rectangular */
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins to buttons */
+    display: inline-block;    /* Ensures buttons are inline without gaps */
+    margin: 5px 0;            /* Add some space between buttons vertically */
+}
+
+.section-button:hover {
+    background-color: #444;   /* Slightly darker shade for hover */
+    color: white;             /* Keep text white on hover */
+}
+
+
+
+/* Logo Grid Container */
+.logo-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 logos per row */
+    gap: 3px 3px; /* 3px gap between rows and columns */
+    justify-items: center; /* Center logos horizontally */
+}
+
+.logo {
+    max-width: 190px; /* Larger logo size */
+    height: auto;
+}
+
+/* Make sure the logos don't overlap or stretch */
+.logo-container a {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Favicon Styling - Fix */
+.banner {
+    width: 100%;   /* Makes the image take up the full width */
+    height: auto;  /* Keeps the aspect ratio of the image */
+    display: block; /* Removes any default inline display styling */
+}
+/* Section Title Style */
+.section-title {
+    font-size: 24px; /* Make the font size larger */
+    font-weight: bold; /* Make it bold */
+    position: relative; /* Needed for positioning the line */
+    margin-bottom: 5px; /* Reduce space between the title and the line */
+    padding-bottom: 5px; /* Bring the line closer to the text */
+}
+
+/* Translucent Panel Behind Hamburger Icon */
+.hamburger-panel {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Align to the left side */
+    width: 50px; /* Width of the translucent background */
+    height: 40px; /* Height of the translucent background */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+    border-radius: 8px; /* Optional: rounded corners */
+    z-index: 500; /* Behind the hamburger icon */
+}
+
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    position: absolute;
+    top: 20px;
+    left: 30px; /* Align to the left side */
+    cursor: pointer;
+    z-index: 1000; /* On top of the translucent panel */
+}
+
+.hamburger-menu .line {
+    width: 30px;
+    height: 4px;
+    background-color: white; /* White lines */
+    margin: 6px 0;
+    transition: 0.3s;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px; /* Space from the top */
+    left: 20px; /* Align dropdown menu to the left */
+    background-color: #333;
+    width: 200px;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+.dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    text-align: center;
+    padding: 10px;
+}
+
+.dropdown-menu li a {
+    color: white; /*this changes the colour of the text in the dropdown menu */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f4a261; /* Hover color */
+}
+
+/* Show the dropdown when active */
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Optionally: Animate the hamburger lines into an "X" when clicked */
+.hamburger-menu.open .line:nth-child(1) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 10px;
+}
+
+.hamburger-menu.open .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.open .line:nth-child(3) {
+    transform: rotate(45deg);
+    position: relative;
+    top: -10px;
+}
+
+        /* The container for the image */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .clickable {
+            cursor: pointer;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Ensure the image container is positioned relatively */
+        .image-item {
+            position: relative;
+        }
+
+        /* Expanded image container */
+        .expanded-image-container {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        /* The image inside the expanded container */
+        .expanded-image-container img {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Make sure the clickable areas are above the text */
+        map area {
+            position: relative;
+            z-index: 20;
+            cursor: pointer;
+        }
+
+        /* Make sure the overlay is hidden until activated */
+        .expanded-image-container.active {
+            display: block;
+        }
+
+        /* Dim the areas a little on hover */
+        area:hover {
+            opacity: 0.7;
+        }
+
+        .expanded-image-container .overlay-text {
+            position: absolute;
+            top: 14%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(0, 0, 0, 0);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 10;
+        }
