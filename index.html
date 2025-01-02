@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Arsenal Women Songbook</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -34,12 +34,19 @@
             </div>
         </div>
     </div>
+    <!-- Add the PDF link below -->
+    <div class="pdf-link">
+        <a href="./documents/songbookdec2024.pdf" target="_blank">Download the Arsenal Women's Songbook (PDF)</a>
+    </div>
 <!-- Lyrics Section -->
      <!-- Lyrics Section -->
      <div id="lyrics-panel" class="lyrics-panel">
         <div id="song1-lyrics" class="lyrics" style="display:none;">
-            <h3>Mariona Caldentey Lyrics</h3>
-            <p><strong>To the Tune of Twist and Shout – The Beatles</strong><br>
+            <div class="lyrics-header">
+                <h3>Mariona Caldentey Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+                <p><strong>To the Tune of Twist and Shout – The Beatles</strong><br>
 
                 Aaaaaaah Aaaaaaaaahhhh Aaaaaaaaaahhhhh AAAAAAAAAAAAAH!<br>
                 
@@ -72,9 +79,14 @@
             <h3>Song 3 Lyrics</h3>
             <p>Lyrics for song 3 go here...</p>
         </div>
-        <!-- Optional close button -->
-        <button id="close-lyrics-panel" onclick="closeLyricsPanel()">Close</button>
+   
+    <!-- Lyrics buttons: Mute and Close -->
+    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+       
+        <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
     </div>
+    
+</div>
     
     <div id="song-list" style="display:none;">
         <ul>

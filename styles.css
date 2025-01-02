@@ -184,18 +184,18 @@ h2.section-title, h3 {
             position: relative;
         }
 
-        /* Expanded image container */
-        .expanded-image-container {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1;
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-        }
+      /* Expanded Image Container */
+.expanded-image-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Lower z-index than the lyrics panel */
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
 
         /* The image inside the expanded container */
         .expanded-image-container img {
@@ -281,11 +281,12 @@ h2.section-title, h3 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 2000; /* Ensure it is on top of the expanded image */
     display: none;
     max-height: 80vh; /* Prevent overflow */
     overflow-y: auto; /* Allow scrolling if content overflows */
 }
+
 .lyrics {
     margin-bottom: 20px;
 }
@@ -295,7 +296,6 @@ h2.section-title, h3 {
     font-weight: 600;
 }
 
-/* Close Button Styling */
 #close-lyrics-panel {
     background-color: #f44336;
     color: white;
@@ -305,15 +305,15 @@ h2.section-title, h3 {
     border-radius: 5px;
     font-size: 16px;
     position: absolute;
-    top: 10px;
-    left: 50%; /* Ensure button is positioned inside the panel */
-    transform: translateX(-50%); /* Centering correction */
+    bottom: 10px; /* Position it at the bottom */
+    right: 125px; /* Position it on the right */
     z-index: 1010; /* Ensure it's above other elements */
 }
 
 #close-lyrics-panel:hover {
     background-color: #d32f2f;
 }
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     /* Adjusting the position and size of the close button on mobile */
@@ -328,8 +328,61 @@ h2.section-title, h3 {
     }
 }
 /* Ensure overflow content on the lyrics panel is scrollable */
-.lyrics-panel .lyrics {
-    max-height: 60vh; /* Ensure lyrics are scrollable if the content is too long */
-    overflow-y: auto;
+/* Flexbox for lyrics header to align h3 and Mute button */
+.lyrics-header {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Spread items across the line */
+    align-items: center; /* Vertically align items */
+    margin-bottom: 10px; /* Add space below the header */
+}
+
+/* Button styling remains consistent with Close button */
+.lyrics-button {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Same size as Close button */
+    font-size: 16px; /* Same font size */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for buttons */
+.lyrics-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Ensure lyrics panel layout remains intact */
+.lyrics-panel {
+    padding: 20px; /* Padding around the lyrics panel */
+    background-color: #fff; /* White background */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Style for the Mute button in the lyrics panel */
+.small-button {
+    display: inline-block; /* Ensure it appears inline */
+    font-size: 14px; /* Slightly smaller font size */
+    padding: 5px 10px; /* Compact button size */
+    margin-left: 10px; /* Space between the heading and the button */
+    background-color: #f44336; /* Same red as other buttons */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for the Mute button */
+.small-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Adjust for lyrics panel button consistency */
+.lyrics-panel h3 {
+    display: flex; /* Flexbox for better alignment */
+    align-items: center; /* Align button with text */
 }
 

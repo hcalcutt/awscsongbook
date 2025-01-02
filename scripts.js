@@ -68,4 +68,24 @@ function closeLyricsPanel() {
     const lyricsPanel = document.getElementById('lyrics-panel');
     lyricsPanel.style.display = 'none';
 }
+// Function to toggle mute for all audio elements
+function toggleMute() {
+    const audioElements = document.querySelectorAll('audio');
+    let isMuted = false;
+
+    // Check if any audio is currently muted
+    if (audioElements.length > 0) {
+        isMuted = audioElements[0].muted;
+    }
+
+    // Toggle mute state for all audio elements
+    audioElements.forEach(audio => {
+        audio.muted = !isMuted;
+    });
+
+    // Update button text
+    const muteButton = document.getElementById('mute-button');
+    muteButton.textContent = isMuted ? 'Mute' : 'Unmute';
+}
+
 
