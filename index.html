@@ -15,70 +15,266 @@
 
             <!-- Expanded image container -->
             <div id="expandedarsenal" class="expanded-image-container">
-                <img src="./images/paper_arsenal.jpg" usemap="#image-map1" alt="Expanded view">
+                <img id="paper-arsenal-image" src="./images/paper_arsenal.jpg" usemap="#image-map1" alt="Expanded view" class="responsive-image">
                 
                 <!-- Image map with clickable area -->
                 <map name="image-map1">
                     <!-- Define clickable areas on the image -->
                    
-                    <area shape="rect" coords="4,61,266,82" href="#" alt="Manu" target="_blank" onclick="playSound('soundmanu', event)">
-                    <area shape="rect" coords="4,100,266,121" href="#" alt="Fox" target="_blank" onclick="playSound('soundfox', event);">
-                    <area shape="rect" coords="4,139,266,160" href="#" alt="Lotte" target="_blank" onclick="playSound('soundlotte', event)">
-                    <area shape="rect" coords="4,178,266,199" href="#" alt="Codina" target="_blank" onclick="playSound('soundcodina', event)">
-                    <area shape="rect" coords="4,217,266,238" href="#" alt="Williamson" target="_blank" onclick="playSound('soundwilliamson', event)">
-                    <area shape="rect" coords="4,256,266,277" href="#" alt="Catley" target="_blank" onclick="playSound('soundcatley', event)">             
-                    <area shape="rect" coords="4,295,266,315" href="#" alt="Caldentey" target="_blank" onclick="playSound('soundcaldentey', event); showLyrics('song1');">
-                    <area shape="rect" coords="4,333,266,354" href="#" alt="Little" target="_blank" onclick="playSound('soundlittle', event)">
-                    <area shape="rect" coords="4,362,266,381" href="#" alt="Caitlin Foord" target="_blank" onclick="playSound('soundfoord', event)">
+                   <!-- <area shape="rect" coords="4,61,266,82" href="#" alt="Manu" target="_blank" onclick="playSound('soundmanu', event); showLyrics('manuzinsberger');">
+                    <area shape="rect" coords="4,100,266,121" href="#" alt="Fox" target="_blank" onclick="playSound('soundfox', event); showLyrics('emilyfox');">
+                    <area shape="rect" coords="4,139,266,160" href="#" alt="Lotte" target="_blank" onclick="playSound('soundlotte', event); showLyrics('lottewubbenmoy');">
+                    <area shape="rect" coords="4,178,266,199" href="#" alt="Codina" target="_blank" onclick="playSound('soundcodina', event); showLyrics('laiacodina');"> -->
+                    <area shape="rect" coords="4,217,266,238" href="#" alt="Williamson" target="_blank" onclick="playSound('soundwilliamson', event); showLyrics('leahwilliamson');">
+                    <area shape="rect" coords="4,256,266,277" href="#" alt="Catley" target="_blank" onclick="playSound('soundcatley', event); showLyrics('stephcatley');">             
+                    <area shape="rect" coords="4,295,266,315" href="#" alt="Caldentey" target="_blank" onclick="playSound('soundcaldentey', event); showLyrics('marionacaldentey');">
+                    <area shape="rect" coords="4,333,266,354" href="#" alt="Mead" target="_blank" onclick="playSound('soundmead', event); showLyrics('bethmead');">
+                    <area shape="rect" coords="4,362,266,381" href="#" alt="Little" target="_blank" onclick="playSound('soundlittle', event); showLyrics('kimlittle');">
+                    <area shape="rect" coords="4,401,266,420" href="#" alt="McCabe" target="_blank" onclick="playSound('soundmccabe', event); showLyrics('marionacaldentey');">
+                    <area shape="rect" coords="4,440,266,459" href="#" alt="Rosa" target="_blank" onclick="playSound('soundrosa', event); showLyrics('rosakafaji');">
+                    <area shape="rect" coords="4,479,266,498" href="#" alt="Hurtig" target="_blank" onclick="playSound('soundhurtig', event); showLyrics('linahurtig');">
+                    <area shape="rect" coords="4,518,266,537" href="#" alt="Caitlin Foord" target="_blank" onclick="playSound('soundfoord', event); showLyrics('caitlinfoord');">
                 </map>
+                <div class="pdf-link">
+                    <a href="./documents/songbookdec2024.pdf" target="_blank">Download the Arsenal Women's Songbook (PDF)</a>
+                </div>
             </div>
         </div>
     </div>
     <!-- Add the PDF link below -->
-    <div class="pdf-link">
-        <a href="./documents/songbookdec2024.pdf" target="_blank">Download the Arsenal Women's Songbook (PDF)</a>
-    </div>
+  
 <!-- Lyrics Section -->
      <!-- Lyrics Section -->
      <div id="lyrics-panel" class="lyrics-panel">
-        <div id="song1-lyrics" class="lyrics" style="display:none;">
+        <div id="manuzinsberger-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Manu Zinsberger Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+           
+                <strong>To the Tune of ‘Seven Nation Army’–The White Stripes</strong><br>
+                Oh Manu Zinsberger!<br>
+                Oh Manu Zinsberger!<br>
+                (repeat)<br>
+            </p>
+        </div>
+        
+        <div id="emilyfox-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Emily Fox Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+              
+                <strong>To the Tune of Kids in America – Kim Wilde</strong><br>
+                Emily Fox from America<br>
+                (Woah)<br>
+                Emily Fox from America<br>
+                (Woah)<br>
+                What a sight to see her in red and white<br>
+                2-3-4<br>
+                X2<br>
+            </p>
+        </div>
+        
+        <div id="lottewubben-moy-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Lotte Wubben-Moy Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+             
+                <strong>To the Tune of ‘Give it up’- KC and The Sunshine Band</strong><br>
+                Na na na na na na na na na<br>
+                Lotte Wubben-Moy<br>
+                Wubben-Moy<br>
+                Lotte Wubben-Moy<br>
+            </p>
+        </div>
+        
+        <div id="laiacodina-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Laia Codina Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+           
+                Laia Codina<br>
+                (👏 👏 👏 👏 👏)<br>
+                Laia Codina<br>
+                (👏 👏 👏 👏 👏)<br>
+            </p>
+        </div>
+        
+        <div id="leahwilliamson-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Leah Williamson Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+               
+                She's one of our own,<br>
+                She's one of our own,<br>
+                Leah Williamson,<br>
+                She's one of our own<br>
+            </p>
+        </div>
+        
+        <div id="stephcatley-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Steph Catley Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+              
+                <strong>To the tune of 'The Saints Go Marching In'</strong><br>
+                (Person leading chant): Oh Steph Catley!<br>
+                ALL: Oh Steph Catley!<br>
+                (Leader): Is wonderful!<br>
+                ALL: 	Is wonderful!<br>
+                Oh Steph Catley is wonderful,<br>
+                She’s got a left foot like Messi,<br>
+                Oh Steph Catley is wonderful!<br>
+            </p>
+        </div>
+        
+        <div id="marionacaldentey-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3>Mariona Caldentey Lyrics</h3>
                 <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
             </div>
-                <p><strong>To the Tune of Twist and Shout – The Beatles</strong><br>
-
-                Aaaaaaah Aaaaaaaaahhhh Aaaaaaaaaahhhhh AAAAAAAAAAAAAH!<br>
+            <p>
                 
+                <strong>To the Tune of 'Twist and Shout' – The Beatles</strong><br>
+                Aaaaaaah Aaaaaaaaahhhh Aaaaaaaaaahhhhh AAAAAAAAAAAAAH!<br>
                 Shake it Caldentey now<br>
                 (Shake it Caldentey)<br>
-                Twist and shout <br>
+                Twist and shout<br>
                 (twist and shout)<br>
-                Come on come on Caldentey now<br> 
+                Come on come on Caldentey now<br>
                 (come on Caldentey)<br>
-                Work it on out <br>
+                Work it on out<br>
                 (work it on out)<br>
-                
                 You know you twist so good,<br>
                 (Twist so good),<br>
-                You know you twist so fine,<br> 
+                You know you twist so fine,<br>
                 (Twist so fine)<br>
-                Come on come on come on Caldentey now <br>
+                Come on come on come on Caldentey now<br>
                 (come on Caldentey)<br>
-                And let me know that you’re mine<br> 
+                And let me know that you’re mine<br>
                 (Let me know you’re mine)<br>
+            </p>
+        </div>
+        <div id="bethmead-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Beth Mead Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
                 
-                </p> <!-- Placeholder text until lyrics are fetched -->
+                <strong> To the tune of ‘Freed from desire’ - Gala </strong><br>
+                Beth Mead’s on fire, <br>
+                Your defence is terrified,<br> 
+                Beth Mead’s on fire, <br>
+                Your defence is terrified,<br>
+                Beth Mead’s on fire, <br>
+                Your defence is terrified<br>
+                Beth Mead’s on fire, <br>
+                Ooof <br>
+                Na na na na na na na <br>
+                Na na na na na <br>
+                Na na na na na na na<br>
+                Na na na na na<br>
+                Na na na na na na na<br>
+                Na na na na na<br>
+            </p>
+        </div>
+   
+
+
+        <div id="kimlittle-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Kim Little Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+                
+                To the tune of ‘Walking in a Winter Wonderland’ - Felix Bernard<br>
+                There’s only oooooone Kimmy Little,<br>
+                Ooooooone Kimmy Little,<br>
+                Walking along,<br>
+                Singing her song,<br>
+                Walking in a Kimmy Wonderland<br>
+            </p>
         </div>
         
-        <div id="song2-lyrics" class="lyrics" style="display:none;">
-            <h3>Song 2 Lyrics</h3>
-            <p>Lyrics for song 2 go here...</p>
+        <div id="katiemccabe-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Katie McCabe Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+                
+                We've got McCabe,<br>
+                Katie McCabe<br>
+                I just don't think you understand<br>
+                She plays out on the wing<br>
+                She hits with a zing<br>
+                We've got Katie McCabe<br>
+            </p>
         </div>
-        <div id="song3-lyrics" class="lyrics" style="display:none;">
-            <h3>Song 3 Lyrics</h3>
-            <p>Lyrics for song 3 go here...</p>
+        
+        <div id="rosakafaji-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Rosa Kafaji Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+                
+                <strong>To the Tune of ‘Can’t Take my Eyes off of you’ – Frankie Valli</strong><br>
+                Rosa Kafaji<br>
+                She’s in the Red and White<br>
+                Rosa Kafaji<br>
+                She’s fucking dynamite<br>
+                Rosa Kafaji<br>
+                Trust in me when I say<br>
+            </p>
         </div>
+        
+        <div id="linahurtig-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Lina Hurtig Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+                
+                <strong>To the tune of ‘I Just Can’t Get Enough’ - Depeche Mode’</strong><br>
+                Do do dah do do do<br>
+                Do do dah do do do<br>
+                Do do dah do do do<br>
+                Lina Hurtig<br>
+            </p>
+        </div>
+        
+        <div id="caitlinfoord-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Caitlin Foord Lyrics</h3>
+                <button id="mute-button" class="lyrics-button" onclick="toggleMute()">Mute</button>
+            </div>
+            <p>
+               
+                <strong>To the Tune of ‘Voulez-Vous’ – ABBA</strong><br>
+                Aha<br>
+                Running Down the Wing<br>
+                Aha<br>
+                Hear the Arsenal Sing<br>
+                Aha<br>
+                And we’re going to win the League<br>
+            </p>
+        </div>
+        
+        
    
     <!-- Lyrics buttons: Mute and Close -->
     <div style="display: flex; justify-content: space-between; margin-top: 20px;">
@@ -88,13 +284,7 @@
     
 </div>
     
-    <div id="song-list" style="display:none;">
-        <ul>
-            <li onclick="showLyrics('song1')">Song 1</li>
-            <li onclick="showLyrics('song2')">Song 2</li>
-            <li onclick="showLyrics('song3')">Song 3</li>
-        </ul>
-    </div>
+   
     
     <script src="scripts.js"></script> <!-- Link to the external JavaScript file -->
 
@@ -108,9 +298,11 @@
     <audio id="soundfoord2" src="./sounds/caitlinfoord2chant.mp3"></audio>
     <audio id="soundmccabe" src="./sounds/mccabechant.mp3"></audio>
     <audio id="soundlotte" src="./sounds/lottechant.mp3"></audio>
-    <audio id="soundmau" src="./sounds/manuchant.mp3"></audio>
+    <audio id="soundmanu" src="./sounds/manuchant.mp3"></audio>
     <audio id="soundmead" src="./sounds/meadchant.mp3"></audio>
     <audio id="soundrusso" src="./sounds/russochant.mp3"></audio>
+    <audio id="soundhurtig" src="./sounds/hurtigchant.mp3"></audio>
+    <audio id="soundrosa" src="./sounds/rosachant.mp3"></audio>
 
 </body>
 </html>

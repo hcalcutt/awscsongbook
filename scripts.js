@@ -41,33 +41,42 @@ window.addEventListener('click', function(event) {
 });
 
 // Show lyrics for a selected song
-function showLyrics(song) {
-    const allLyrics = document.querySelectorAll('.lyrics');
-    allLyrics.forEach(lyric => lyric.style.display = 'none');
+function showLyrics(lyricId) {
+    // Hide all the lyrics divs
+    const allLyricsDivs = document.querySelectorAll('.lyrics');
+    allLyricsDivs.forEach(div => {
+        div.style.display = 'none'; // Hide all the lyric divs
+    });
 
-    const selectedLyrics = document.getElementById(song + '-lyrics');
-    if (selectedLyrics) {
-        selectedLyrics.style.display = 'block';
+    // Show the selected lyrics div
+    const selectedLyricsDiv = document.getElementById(lyricId + '-lyrics');
+    if (selectedLyricsDiv) {
+        selectedLyricsDiv.style.display = 'block'; // Show the selected lyrics div
+
+        // Ensure the lyrics panel is visible
+        const lyricsPanel = document.getElementById('lyrics-panel');
+        if (lyricsPanel) {
+            lyricsPanel.style.display = 'block';  // Show the lyrics panel only when needed
+        }
     }
-
-    if (song === 'song1') {
-        fetch('./lyrics/song1-lyrics.txt')
-            .then(response => response.text())
-            .then(data => {
-                selectedLyrics.querySelector('p').innerText = data;
-            })
-            .catch(error => console.error('Error fetching lyrics:', error));
-    }
-
-    const lyricsPanel = document.getElementById('lyrics-panel');
-    lyricsPanel.style.display = 'block';
 }
 
-// Close the lyrics panel
+// Function to close the lyrics panel and reset its state
 function closeLyricsPanel() {
     const lyricsPanel = document.getElementById('lyrics-panel');
-    lyricsPanel.style.display = 'none';
+    if (lyricsPanel) {
+        lyricsPanel.style.display = 'none'; // Hide the lyrics panel when closed
+    }
+
+    // Hide all individual lyrics
+    const allLyricsDivs = document.querySelectorAll('.lyrics');
+    allLyricsDivs.forEach(div => {
+        div.style.display = 'none';
+    });
+
+    stopSound(); // Stop any audio that might be playing
 }
+
 // Function to toggle mute for all audio elements
 function toggleMute() {
     const audioElements = document.querySelectorAll('audio');
@@ -85,7 +94,29 @@ function toggleMute() {
 
     // Update button text
     const muteButton = document.getElementById('mute-button');
-    muteButton.textContent = isMuted ? 'Mute' : 'Unmute';
+    if (muteButton) {
+        muteButton.textContent = isMuted ? 'Mute' : 'Unmute';
+    }
 }
 
+// Stop propagation when clicking on elements inside the lyrics panel
+document.getElementById('lyrics-panel').addEventListener('click', function(event) {
+    event.stopPropagation();  // Prevent clicks inside the panel from closing it
+});
 
+// Ensure the lyrics panel is hidden when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const lyricsPanel = document.getElementById('lyrics-panel');
+    if (lyricsPanel) {
+        lyricsPanel.style.display = 'none';  // Hide the lyrics panel initially
+    }
+});
+
+// Close the lyrics panel if clicked outside of it
+window.addEventListener('click', function(event) {
+    const lyricsPanel = document.getElementById('lyrics-panel');
+    if (lyricsPanel && !lyricsPanel.contains(event.target)) {
+        lyricsPanel.style.display = 'none';  // Close the panel if clicked outside
+        stopSound();  // Stop any sound if lyrics panel is closed
+    }
+});

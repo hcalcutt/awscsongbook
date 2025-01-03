@@ -186,8 +186,8 @@ h2.section-title, h3 {
 
       /* Expanded Image Container */
 .expanded-image-container {
-    display: none;
-    position: absolute;
+    position: relative;
+    display: inline-block; /* Ensure it fits the content */
     top: 0;
     left: 0;
     width: 100%;
@@ -196,6 +196,7 @@ h2.section-title, h3 {
     padding: 1rem;
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
+
 
         /* The image inside the expanded container */
         .expanded-image-container img {
@@ -305,7 +306,7 @@ h2.section-title, h3 {
     border-radius: 5px;
     font-size: 16px;
     position: absolute;
-    bottom: 10px; /* Position it at the bottom */
+    bottom: 5px; /* Position it at the bottom */
     right: 125px; /* Position it on the right */
     z-index: 1010; /* Ensure it's above other elements */
 }
@@ -362,9 +363,9 @@ h2.section-title, h3 {
 }
 
 /* Style for the Mute button in the lyrics panel */
-.small-button {
+.mute-button {
     display: inline-block; /* Ensure it appears inline */
-    font-size: 14px; /* Slightly smaller font size */
+    font-size: 14px; 
     padding: 5px 10px; /* Compact button size */
     margin-left: 10px; /* Space between the heading and the button */
     background-color: #f44336; /* Same red as other buttons */
@@ -376,7 +377,7 @@ h2.section-title, h3 {
 }
 
 /* Hover effect for the Mute button */
-.small-button:hover {
+.mute-button:hover {
     background-color: #d32f2f; /* Darker red on hover */
 }
 
@@ -384,5 +385,26 @@ h2.section-title, h3 {
 .lyrics-panel h3 {
     display: flex; /* Flexbox for better alignment */
     align-items: center; /* Align button with text */
+}
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    width: 100%; /* Ensures image is responsive */
+}
+
+/* Style the PDF link */
+.pdf-link {
+    position: absolute;
+    bottom: 20px; /* Adjust this to move the link up or down */
+    left: 50%;
+    transform: translateX(-50%); /* Center the link horizontally */
+    background-color: rgba(0, 0, 0, 0.7); /* Optional: background for readability */
+    color: white; /* Text color */
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: add shadow for better visibility */
 }
 
