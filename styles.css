@@ -22,24 +22,6 @@ h2.section-title, h3 {
     text-decoration: none; /* Removes the underline from links */
 }
 
-.section-button {
-    background-color: black; /* Black background */
-    color: white;             /* White text */
-    padding: 15px 30px;       /* Padding */
-    border: none;             /* Remove any borders */
-    border-radius: 0;         /* Make the button rectangular */
-    font-size: 18px;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif; /* Apply Poppins to buttons */
-    display: inline-block;    /* Ensures buttons are inline without gaps */
-    margin: 5px 0;            /* Add some space between buttons vertically */
-}
-
-.section-button:hover {
-    background-color: #444;   /* Slightly darker shade for hover */
-    color: white;             /* Keep text white on hover */
-}
 
 
 
@@ -302,11 +284,11 @@ h2.section-title, h3 {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 2px;
     font-size: 16px;
     position: absolute;
-    bottom: 10px; /* Position it at the bottom */
-    right: 125px; /* Position it on the right */
+    bottom: 15px; /* Position it at the bottom */
+    right: 15px; /* Position it on the right */
     z-index: 1010; /* Ensure it's above other elements */
 }
 
@@ -324,7 +306,7 @@ h2.section-title, h3 {
     }
        .lyrics-panel {
         width: 80%; /* Make the panel width smaller on mobile */
-        max-height: 70vh; /* Allow more space for other elements */
+        max-height: 80vh; /* Allow more space for other elements */
     }
 }
 /* Ensure overflow content on the lyrics panel is scrollable */
@@ -363,7 +345,7 @@ h2.section-title, h3 {
 
 /* Style for the Mute button in the lyrics panel */
 .small-button {
-    display: inline-block; /* Ensure it appears inline */
+   
     font-size: 14px; /* Slightly smaller font size */
     padding: 5px 10px; /* Compact button size */
     margin-left: 10px; /* Space between the heading and the button */
@@ -373,6 +355,10 @@ h2.section-title, h3 {
     border-radius: 4px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor */
     transition: background-color 0.3s ease; /* Smooth hover effect */
+    position: absolute;
+    top: 5px; /* Position it at the bottom */
+    right: 15px; /* Position it on the right */
+    z-index: 1010; /* Ensure it's above other elements */
 }
 
 /* Hover effect for the Mute button */
