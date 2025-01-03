@@ -120,3 +120,61 @@ window.addEventListener('click', function(event) {
         stopSound();  // Stop any sound if lyrics panel is closed
     }
 });
+
+// Add this to your scripts.js file
+function updateImageMapCoordinates() {
+    const image = document.querySelector('#paper-arsenal-image');
+    if (!image) return;
+    
+    // Original working desktop coordinates
+    const originalCoords = {
+        'williamson': '4,217,266,238',
+        'catley': '4,256,266,277',
+        'caldentey': '4,295,266,315',
+        'mead': '4,333,266,354',
+        'little': '4,362,266,381',
+        'mccabe': '4,401,266,420',
+        'rosa': '4,440,266,459',
+        'hurtig': '4,479,266,498',
+        'foord': '4,518,266,537'
+    };
+
+    const desktopWidth = 359;
+    const currentWidth = image.width;
+    
+    // Only scale if we're on a different width than desktop
+    if (currentWidth !== desktopWidth) {
+        const scale = currentWidth / desktopWidth;
+        
+        Object.entries(originalCoords).forEach(([player, coords]) => {
+            const area = document.querySelector(`area[alt="${player}"]`);
+            if (area) {
+                // Split coordinates into array
+                const coordArray = coords.split(',').map(Number);
+                
+                // Add a small vertical offset for mobile
+                const mobileOffset = currentWidth < desktopWidth ? -20 : 0;
+                
+                // Scale and adjust coordinates
+                const scaledCoords = [
+                    Math.round(coordArray[0] * scale),              // x1
+                    Math.round(coordArray[1] * scale) + mobileOffset, // y1
+                    Math.round(coordArray[2] * scale),              // x2
+                    Math.round(coordArray[3] * scale) + mobileOffset  // y2
+                ].join(',');
+                
+                area.coords = scaledCoords;
+            }
+        });
+    }
+}
+
+// Call function when image loads and on window resize
+document.addEventListener('DOMContentLoaded', function() {
+    const image = document.querySelector('#paper-arsenal-image');
+    if (image) {
+        image.addEventListener('load', updateImageMapCoordinates);
+        window.addEventListener('resize', updateImageMapCoordinates);
+        setTimeout(updateImageMapCoordinates, 500);
+    }
+});
