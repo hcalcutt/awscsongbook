@@ -121,7 +121,7 @@ window.addEventListener('click', function(event) {
     }
 });
 
-// Add this to your scripts.js file
+
 function updateImageMapCoordinates() {
     const image = document.querySelector('#paper-arsenal-image');
     if (!image) return;
@@ -153,7 +153,7 @@ function updateImageMapCoordinates() {
                 const coordArray = coords.split(',').map(Number);
                 
                 // Add a small vertical offset for mobile
-                const mobileOffset = currentWidth < desktopWidth ? -20 : 0;
+                const mobileOffset = currentWidth < desktopWidth ? -10 : 0;
                 
                 // Scale and adjust coordinates
                 const scaledCoords = [

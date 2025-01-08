@@ -32,8 +32,8 @@
                     <area shape="rect" coords="4,362,266,381" href="#" alt="Little" target="_blank" onclick="playSound('soundlittle', event); showLyrics('kimlittle');">
                     <area shape="rect" coords="4,401,266,420" href="#" alt="McCabe" target="_blank" onclick="playSound('soundmccabe', event); showLyrics('katiemccabe');">
                     <area shape="rect" coords="4,440,266,459" href="#" alt="Rosa" target="_blank" onclick="playSound('soundrosa', event); showLyrics('rosakafaji');">
-                    <area shape="rect" coords="4,479,266,498" href="#" alt="Hurtig" target="_blank" onclick="playSound('soundhurtig', event); showLyrics('linahurtig');">
-                    <area shape="rect" coords="4,518,266,537" href="#" alt="Caitlin Foord" target="_blank" onclick="playSound('soundfoord', event); showLyrics('caitlinfoord');">
+                    <area shape="rect" coords="4,460,266,458" href="#" alt="Hurtig" target="_blank" onclick="playSound('soundhurtig', event); showLyrics('linahurtig');">
+                    <area shape="rect" coords="4,469,266,478" href="#" alt="Caitlin Foord" target="_blank" onclick="playSound('soundfoord', event); showLyrics('caitlinfoord');">
                 </map>
                 <div class="pdf-link">
                     <a href="./documents/songbookdec2024.pdf" target="_blank">Download the Arsenal Women's Songbook (PDF)</a>
@@ -292,17 +292,40 @@
     <audio id="soundfoord" src="./sounds/caitlinfoordchant.mp3"></audio>
     <audio id="soundcaldentey" src="./sounds/caldenteychant.mp3"></audio>
     <audio id="soundlittle" src="./sounds/littlechant.mp3"></audio>
-    <audio id="soundwilliamson" src="./sounds/williamsonhant.mp3"></audio>
     <audio id="soundfox" src="./sounds/foxchant.mp3"></audio>
     <audio id="soundcatley" src="./sounds/catleychant.mp3"></audio>
-    <audio id="soundfoord2" src="./sounds/caitlinfoord2chant.mp3"></audio>
-    <audio id="soundmccabe" src="./sounds/mccabechant.mp3"></audio>
-    <audio id="soundlotte" src="./sounds/lottechant.mp3"></audio>
+     <audio id="soundmccabe" src="./sounds/mccabechant.mp3"></audio>
+    <!--<audio id="soundlotte" src="./sounds/lottechant.mp3"></audio>
     <audio id="soundmanu" src="./sounds/manuchant.mp3"></audio>
     <audio id="soundmead" src="./sounds/meadchant.mp3"></audio>
+    <audio id="soundfoord2" src="./sounds/caitlinfoord2chant.mp3"></audio>
     <audio id="soundrusso" src="./sounds/russochant.mp3"></audio>
+    <audio id="soundwilliamson" src="./sounds/williamsonhant.mp3"></audio>-->
     <audio id="soundhurtig" src="./sounds/hurtigchant.mp3"></audio>
     <audio id="soundrosa" src="./sounds/rosachant.mp3"></audio>
-
+    <script>
+        function scaleImageMap() {
+            const img = document.querySelector('img[usemap]');
+            const originalWidth = 400; // Replace with the original width of your image
+            const mapName = img.useMap.substring(1);
+            const map = document.querySelector(`map[name="${mapName}"]`);
+            const areas = map.querySelectorAll('area');
+    
+            // Calculate the scaling factor
+            const scaleFactor = img.clientWidth / originalWidth;
+    
+            // Update the coordinates of each area
+            areas.forEach(area => {
+                const originalCoords = area.dataset.originalCoords.split(',').map(Number);
+                const scaledCoords = originalCoords.map(coord => Math.round(coord * scaleFactor));
+                area.coords = scaledCoords.join(',');
+            });
+        }
+    
+        // Initialize scaling on window load and resize
+        window.addEventListener('load', scaleImageMap);
+        window.addEventListener('resize', scaleImageMap);
+    </script>
+    
 </body>
 </html>
