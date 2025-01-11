@@ -21,6 +21,17 @@ function playSound(soundId, event) {
         audio.play();
     }
 }
+function handleAreaClick(lyricId, event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const expandedContainer = document.getElementById('expandedarsenal');
+    if (expandedContainer.style.display !== 'block') {
+        return; // Exit if the expanded container is not visible
+    }
+    showLyrics(lyricId);
+    
+}
+
 
 // Stop sound
 function stopSound() {
@@ -60,6 +71,34 @@ function showLyrics(lyricId) {
         }
     }
 }
+let currentlyPlayingAudio = null;
+
+function playSong(audioId, button) {
+    const audio = document.getElementById(audioId);
+
+    // Stop currently playing audio if a new one is selected
+    if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
+        currentlyPlayingAudio.pause();
+        currentlyPlayingAudio.currentTime = 0;
+        const previousButton = document.querySelector(".lyrics-button[playing]");
+        if (previousButton) {
+            previousButton.innerText = "Play";
+            previousButton.removeAttribute("playing");
+        }
+    }
+
+    if (audio.paused) {
+        audio.play();
+        button.innerText = "Pause";
+        button.setAttribute("playing", "true");
+        currentlyPlayingAudio = audio;
+    } else {
+        audio.pause();
+        button.innerText = "Play";
+        button.removeAttribute("playing");
+    }
+}
+
 
 // Function to close the lyrics panel and reset its state
 function closeLyricsPanel() {
