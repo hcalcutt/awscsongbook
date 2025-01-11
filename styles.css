@@ -1,5 +1,20 @@
 /* Global Styles */
 body {
+    margin: 0; /* Remove default margins */
+    background-image: url('./images/wallpaper.jpg'); /* Replace with your image URL */
+    background-repeat: repeat; /* Tiles the image */
+    background-size: auto; /* Keeps the image at its original size */
+    background-attachment: fixed; /* Makes the background stay in place while scrolling (optional) */
+  }
+  .content {
+    position: relative; /* Ensure positioning for overlapping content */
+    z-index: 1; /* Keep content above the background */
+  }
+  img {
+    display: block; /* Remove gaps around images */
+    margin: 20px; /* Example margin */
+  }
+body {
     font-family: 'Poppins', sans-serif; /* Apply Poppins font */
     margin: 20px; /* Add a margin around the content */
     padding: 0;
@@ -153,12 +168,19 @@ h2.section-title, h3 {
             margin: 0;
         }
 
+        
         .clickable {
             cursor: pointer;
             border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
             width: 100%;
             max-width: 400px;
+        }
+        
+        .clickable:hover {
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(1.02);
         }
 
         /* Ensure the image container is positioned relatively */
