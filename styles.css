@@ -13,6 +13,10 @@ body {
   img {
     display: block; /* Remove gaps around images */
     margin: 20px; /* Example margin */
+    user-select: none; /* Prevent highlighting */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
   }
 body {
     font-family: 'Poppins', sans-serif; /* Apply Poppins font */
@@ -208,6 +212,10 @@ h2.section-title, h3 {
             height: auto;
             position: relative;
             z-index: 1;
+            user-select: none; /* Prevent highlighting */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         /* Make sure the clickable areas are above the text */
