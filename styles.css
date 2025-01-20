@@ -174,13 +174,21 @@ h2.section-title, h3 {
 
         
         .clickable {
-            cursor: pointer;
+            cursor: absolute;
             border-radius: 0.5rem;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             width: 100%;
             max-width: 400px;
+            top: 50%; /* Position from the top in percentage */
+            left: 50%; /* Position from the left in percentage */
+            touch-action: manipulation; /* Optimize for touch input */
+            
         }
+       
+    
+     
+        
         
         .clickable:hover {
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
@@ -204,6 +212,7 @@ h2.section-title, h3 {
     padding: 1rem;
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         /* The image inside the expanded container */
         .expanded-image-container img {
@@ -224,6 +233,12 @@ h2.section-title, h3 {
             z-index: 20;
             cursor: pointer;
         }
+        map area {
+            outline: none; /* Remove default outline */
+            border: none; /* No border on click */
+            cursor: pointer; /* Clear visual feedback on touch */
+        }
+        
 
         /* Make sure the overlay is hidden until activated */
         .expanded-image-container.active {
@@ -234,6 +249,17 @@ h2.section-title, h3 {
         area:hover {
             opacity: 0.7;
         }
+        @media (hover: hover) {
+            .clickable:hover {
+                box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+                transform: scale(1.02);
+            }
+        }
+        .clickable:active {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            transform: scale(0.98);
+        }
+        
 
         .expanded-image-container .overlay-text {
             position: absolute;
@@ -259,13 +285,7 @@ h2.section-title, h3 {
     padding-top: 20px;
 }
 
-.clickable {
-    cursor: pointer;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 400px;
-}
+
 
 .image-item {
     position: relative;
