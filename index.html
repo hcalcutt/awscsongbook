@@ -21,9 +21,9 @@
                 <map name="image-map1">
                     <!-- Define clickable areas on the image -->
                    
-                    <area shape="rect" coords="4,115,266,130"  alt="Manu" target="_blank" onclick="handleAreaClick('soundmanu', event); showLyrics('manuzinsberger');">
-                    <area shape="rect" coords="4,125,266,130" alt="Fox" target="_blank" onclick="handleAreaClick('soundfox', event); showLyrics('emilyfox');">
-                    <area shape="rect" coords="4,135,266,150"  alt="Lotte" target="_blank" onclick="handleAreaClick('soundlotte', event); showLyrics('lottewubben-moy');">
+                    <area shape="rect" coords="4,70,266,95"  alt="Manu" target="_blank" onclick="handleAreaClick('soundmanu', event); showLyrics('manuzinsberger');">
+                    <area shape="rect" coords="4,100,266,120" alt="Fox" target="_blank" onclick="handleAreaClick('soundfox', event); showLyrics('emilyfox');">
+                    <area shape="rect" coords="4,125,266,150"  alt="Lotte" target="_blank" onclick="handleAreaClick('soundlotte', event); showLyrics('lottewubben-moy');">
                     <area shape="rect" coords="4,160,266,175" alt="Codina" target="_blank" onclick="handleAreaClick('soundcodina', event); showLyrics('laiacodina');"> 
                     <area shape="rect" coords="4,180,266,195" alt="Williamson" target="_blank" onclick="handleAreaClick('soundleah', event); showLyrics('leahwilliamson');">               
                     <area shape="rect" coords="4,210,266,235" alt="Catley" target="_blank" onclick="handleAreaClick('soundcatley', event); showLyrics('stephcatley');">             
@@ -125,8 +125,21 @@
                 (👏 👏 👏 👏 👏)<br>
             </p>
         </div>
-        
         <div id="leahwilliamson-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Leah Williamson Lyrics</h3>
+                <button id="play-button" class="lyrics-button" onclick="playSound('soundleah', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
+            </div>
+            <p>
+               
+                Do do do do do do <br>
+                Leah Williamson<br>
+               
+            </p>
+        </div>
+        <div id="leahwilliamson2-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3>Leah Williamson Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundleah', event)">Play</button>
@@ -329,6 +342,24 @@
             </p>
         </div>
         <div id="wally-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3> Lia Wälti Lyrics</h3>
+               <button id="play-button" class="lyrics-button" onclick="playSound('soundwally', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
+            </div>
+           
+            <p>
+                <strong>To the tune of ‘Ain't Nobody’ - Chaka Khan</strong>
+
+                Ain't nobody  <br>
+                Like Lia Wälti <br>
+                Makes me happy <br>
+                Makes me feel this way <br>
+               
+            </p>
+        </div>
+        <div id="wally2-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3> Lia Wälti Lyrics</h3>
                <button id="play-button" class="lyrics-button" onclick="playSound('soundwally', event)">Play</button>
@@ -549,6 +580,7 @@
     <audio id="soundcodina" src="./sounds/codinachant.mp3"></audio>
     <audio id="soundreid" src="./sounds/reidchant.mp3"></audio>
     <audio id="soundwilliams" src="./sounds/williamschant.mp3"></audio>
+    <audio id="soundilestedt" src="./sounds/ilestedtchant.mp3"></audio>
 
    
 </body>
