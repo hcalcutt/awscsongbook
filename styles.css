@@ -341,7 +341,7 @@ h2.section-title, h3 {
     border-radius: 2px;
     font-size: 16px;
     position: absolute;
-    bottom: 5px; /* Position it at the bottom */
+    bottom: 1px; /* Position it at the bottom */
     right: 10px; /* Position it on the right */
     z-index: 1010; /* Ensure it's above other elements */
 }
@@ -355,7 +355,7 @@ h2.section-title, h3 {
     #close-lyrics-panel {
         font-size: 14px;
         padding: 8px 16px;
-        bottom: 10px; /* Increase this from 1px */
+        bottom: 1px; 
         right: 10px;
     }
 }

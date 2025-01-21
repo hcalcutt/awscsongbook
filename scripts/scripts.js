@@ -71,7 +71,6 @@ function playSound(audioId, button) {
     if (audio.paused) {
         audio.play();
         button.innerText = "Pause";
-        button.setAttribute("playing", "true");
         currentlyPlayingAudio = audio;
     } else {
         audio.pause();

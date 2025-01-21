@@ -11,7 +11,7 @@
         <div class="image-item">
             <!-- Image that can be clicked to expand -->
             
-            <img src="./images/cassettearsenalsongbook.png" alt="Click to expand" class="clickable" onclick="toggleImage('expandedarsenal', event); toggleSongList()" usemap="#image-map1">
+            <img src="./images/cassettearsenalsongbook.png" alt="Click to expand" class="clickable" onclick="toggleImage('expandedarsenal', event); " usemap="#image-map1">
 
             <!-- Expanded image container -->
             <div id="expandedarsenal" class="expanded-image-container">
@@ -21,8 +21,8 @@
                 <map name="image-map1">
                     <!-- Define clickable areas on the image -->
                    
-                    <area shape="rect" coords="4,95,266,110"  alt="Manu" target="_blank" onclick="handleAreaClick('soundmanu', event); showLyrics('manuzinsberger');">
-                    <area shape="rect" coords="4,115,266,130" alt="Fox" target="_blank" onclick="handleAreaClick('soundfox', event); showLyrics('emilyfox');">
+                    <area shape="rect" coords="4,115,266,130"  alt="Manu" target="_blank" onclick="handleAreaClick('soundmanu', event); showLyrics('manuzinsberger');">
+                    <area shape="rect" coords="4,125,266,130" alt="Fox" target="_blank" onclick="handleAreaClick('soundfox', event); showLyrics('emilyfox');">
                     <area shape="rect" coords="4,135,266,150"  alt="Lotte" target="_blank" onclick="handleAreaClick('soundlotte', event); showLyrics('lottewubben-moy');">
                     <area shape="rect" coords="4,160,266,175" alt="Codina" target="_blank" onclick="handleAreaClick('soundcodina', event); showLyrics('laiacodina');"> 
                     <area shape="rect" coords="4,180,266,195" alt="Williamson" target="_blank" onclick="handleAreaClick('soundleah', event); showLyrics('leahwilliamson');">               
@@ -61,7 +61,7 @@
                 <div class="lyrics-header">
     <h3>Manu Zinsberger Lyrics</h3>
     <button id="play-button" class="lyrics-button" onclick="playSound('soundmanu', event)">Play</button>
-    <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+    <button id="close-lyrics-panel" class="close-button" onclick="closeLyricsPanel()">Close</button>
   
 </div>
 
@@ -331,7 +331,7 @@
         <div id="wally-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3> Lia Wälti Lyrics</h3>
-                <button id="play-button" class="lyrics-button" onclick="playSound('soundwally', event)">Play</button>
+               <button id="play-button" class="lyrics-button" onclick="playSound('soundwally', event)">Play</button>
                 <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
   
             </div>
@@ -376,7 +376,7 @@
         <div id="victoriapelova-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3>Victoria Pelova Lyrics</h3>
-                <button id="play-button" class="lyrics-button" onclick="playSound('soundpelova', event)">Play</button>
+                <!--<button id="play-button" class="lyrics-button" onclick="playSound('soundpelova', event)">Play</button>-->
                 <button id="close-lyrics-panel" class="close-lyrics-button" onclick="closeLyricsPanel()">Close</button>
   
             </div>
@@ -392,6 +392,26 @@
             </p>
         </div>
         <div id="russo-lyrics" class="lyrics" style="display:none;">
+            <div class="lyrics-header">
+                <h3>Alessia Russo Lyrics</h3>
+                <button id="play-button" class="lyrics-button" onclick="playSound('soundrusso', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
+            </div>
+           
+            <p>
+                
+
+                Russo again, <br>
+                Russo again,<br>
+                Russo again, <br>
+                Ole Ole <br>
+                <br>
+                
+                
+            </p>
+        </div>
+        <div id="russo2-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3>Alessia Russo Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundrusso', event)">Play</button>
@@ -510,45 +530,26 @@
     <audio id="soundfox" src="./sounds/foxchant.mp3"></audio>
     <audio id="soundcatley" src="./sounds/catleychant.mp3"></audio>
      <audio id="soundmccabe" src="./sounds/mccabechant.mp3"></audio>
-    <!--<audio id="soundlotte" src="./sounds/lottechant.mp3"></audio>
+    <!--
+    <audio id="soundpelova" src="./sounds/pelovachant.mp3"></audio>-->
+    <audio id="soundlotte" src="./sounds/lottechant.mp3"></audio>
     <audio id="soundfoord2" src="./sounds/caitlinfoord2chant.mp3"></audio>
-    <audio id="soundmanu" src="./sounds/manuchant.mp3"></audio>-->
+    <audio id="soundmanu" src="./sounds/manuchant.mp3"></audio>
+    <audio id="soundstina" src="./sounds/stinachant.mp3"></audio>
+    <audio id="soundwally" src="./sounds/wallychant.mp3"></audio>
     <audio id="soundbethmead" src="./sounds/bethmeadchant1.mp3"></audio>
+    <audio id="soundbethmead2" src="./sounds/bethmeadchant2.mp3"></audio>
     <audio id="soundleah" src="./sounds/leahchant.mp3"></audio>
     <audio id="soundhurtig" src="./sounds/hurtigchant.mp3"></audio>
     <audio id="soundrosa" src="./sounds/rosachant.mp3"></audio>
-    <audio id="soundwally" src="./sounds/wallychant.mp3"></audio>
     <audio id="sounddaphne" src="./sounds/daphnechant.mp3"></audio>
     <audio id="soundrusso" src="./sounds/russochant.mp3"></audio>
-    <audio id="soundstina" src="./sounds/stinachant.mp3"></audio>
     <audio id="soundkcc" src="./sounds/kccchant.mp3"></audio>
-    <audio id="soundpelova" src="./sounds/pelovachant.mp3"></audio>
     <audio id="soundmaanum" src="./sounds/maanumchant.mp3"></audio>
     <audio id="soundcodina" src="./sounds/codinachant.mp3"></audio>
+    <audio id="soundreid" src="./sounds/reidchant.mp3"></audio>
+    <audio id="soundwilliams" src="./sounds/williamschant.mp3"></audio>
 
-    <script>
-        function scaleImageMap() {
-            const img = document.querySelector('img[usemap]');
-            const originalWidth = 400; // Replace with the original width of your image
-            const mapName = img.useMap.substring(1);
-            const map = document.querySelector(`map[name="${mapName}"]`);
-            const areas = map.querySelectorAll('area');
-    
-            // Calculate the scaling factor
-            const scaleFactor = img.clientWidth / originalWidth;
-    
-            // Update the coordinates of each area
-            areas.forEach(area => {
-                const originalCoords = area.dataset.originalCoords.split(',').map(Number);
-                const scaledCoords = originalCoords.map(coord => Math.round(coord * scaleFactor));
-                area.coords = scaledCoords.join(',');
-            });
-        }
-    
-        // Initialize scaling on window load and resize
-        window.addEventListener('load', scaleImageMap);
-        window.addEventListener('resize', scaleImageMap);
-    </script>
-    
+   
 </body>
 </html>
