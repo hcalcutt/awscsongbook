@@ -1,3 +1,4 @@
+
 // Toggle expanded image view
 function toggleImage(imageId, event) {
     event.stopPropagation();
@@ -9,18 +10,8 @@ function toggleImage(imageId, event) {
     stopSound();
 }
 
-// Play sound when the area is clicked
-function playSound(soundId, event) {
-    event.preventDefault();
-    event.stopPropagation();
-    stopSound();
 
-    const audio = document.getElementById(soundId);
-    if (audio) {
-        audio.currentTime = 0;
-        audio.play();
-    }
-}
+
 function handleAreaClick(lyricId, event) {
     event.preventDefault();
     event.stopPropagation();
@@ -29,9 +20,7 @@ function handleAreaClick(lyricId, event) {
         return; // Exit if the expanded container is not visible
     }
     showLyrics(lyricId);
-    
 }
-
 
 // Stop sound
 function stopSound() {
@@ -42,35 +31,27 @@ function stopSound() {
     });
 }
 
-// Close expanded image when clicking outside
-window.addEventListener('click', function(event) {
-    const expandedImage = document.querySelector('.expanded-image-container.active');
-    if (expandedImage && !expandedImage.contains(event.target)) {
-        expandedImage.classList.remove('active');
-        stopSound();
-    }
-});
-
 // Show lyrics for a selected song
 function showLyrics(lyricId) {
     // Hide all the lyrics divs
     const allLyricsDivs = document.querySelectorAll('.lyrics');
     allLyricsDivs.forEach(div => {
-        div.style.display = 'none'; // Hide all the lyric divs
+        div.style.display = 'none';
     });
 
     // Show the selected lyrics div
     const selectedLyricsDiv = document.getElementById(lyricId + '-lyrics');
     if (selectedLyricsDiv) {
-        selectedLyricsDiv.style.display = 'block'; // Show the selected lyrics div
+        selectedLyricsDiv.style.display = 'block';
 
         // Ensure the lyrics panel is visible
         const lyricsPanel = document.getElementById('lyrics-panel');
         if (lyricsPanel) {
-            lyricsPanel.style.display = 'block';  // Show the lyrics panel only when needed
+            lyricsPanel.style.display = 'block';
         }
     }
 }
+
 let currentlyPlayingAudio = null;
 
 function playSong(audioId, button) {
@@ -99,12 +80,11 @@ function playSong(audioId, button) {
     }
 }
 
-
 // Function to close the lyrics panel and reset its state
 function closeLyricsPanel() {
     const lyricsPanel = document.getElementById('lyrics-panel');
     if (lyricsPanel) {
-        lyricsPanel.style.display = 'none'; // Hide the lyrics panel when closed
+        lyricsPanel.style.display = 'none';
     }
 
     // Hide all individual lyrics
@@ -113,7 +93,7 @@ function closeLyricsPanel() {
         div.style.display = 'none';
     });
 
-    stopSound(); // Stop any audio that might be playing
+    stopSound();
 }
 
 // Function to toggle mute for all audio elements
@@ -121,85 +101,80 @@ function toggleMute() {
     const audioElements = document.querySelectorAll('audio');
     let isMuted = false;
 
-    // Check if any audio is currently muted
     if (audioElements.length > 0) {
         isMuted = audioElements[0].muted;
     }
 
-    // Toggle mute state for all audio elements
     audioElements.forEach(audio => {
         audio.muted = !isMuted;
     });
 
-    // Update button text
     const muteButton = document.getElementById('mute-button');
     if (muteButton) {
         muteButton.textContent = isMuted ? 'Mute' : 'Unmute';
     }
 }
+// Function to adjust coordinates based on the current image size
+function adjustCoords(coords, imageWidth) {
+    // Split the original coordinates into individual values
+    let [x1, y1, x2, y2] = coords.split(',').map(Number);
 
-// Stop propagation when clicking on elements inside the lyrics panel
-document.getElementById('lyrics-panel').addEventListener('click', function(event) {
-    event.stopPropagation();  // Prevent clicks inside the panel from closing it
-});
+    // Calculate the scale factor based on the image width
+    const scaleFactor = imageWidth / 1024; // Assuming the original image width is 1024px
 
-// Ensure the lyrics panel is hidden when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    const lyricsPanel = document.getElementById('lyrics-panel');
-    if (lyricsPanel) {
-        lyricsPanel.style.display = 'none';  // Hide the lyrics panel initially
-    }
-});
+    // Adjust the coordinates based on the scale factor
+    x1 *= scaleFactor;
+    y1 *= scaleFactor;
+    x2 *= scaleFactor;
+    y2 *= scaleFactor;
 
-// Close the lyrics panel if clicked outside of it
-window.addEventListener('click', function(event) {
-    const lyricsPanel = document.getElementById('lyrics-panel');
-    if (lyricsPanel && !lyricsPanel.contains(event.target)) {
-        lyricsPanel.style.display = 'none';  // Close the panel if clicked outside
-        stopSound();  // Stop any sound if lyrics panel is closed
-    }
-});
+    // Return the adjusted coordinates
+    return `${x1},${y1},${x2},${y2}`;
+}
 
+// Function to update the image map coordinates dynamically
+function updateImageMapCoords() {
+    const image = document.getElementById('paper-arsenal-image');
+    const areas = document.querySelectorAll('map[name="image-map1"] area');
 
+    // Wait for the image to load and get its width
+    image.onload = function () {
+        const imageWidth = image.width;
+
+        // Loop through all the areas and adjust their coordinates
+        areas.forEach(area => {
+            const originalCoords = area.getAttribute('coords');
+            const adjustedCoords = adjustCoords(originalCoords, imageWidth);
+            area.setAttribute('coords', adjustedCoords); // Update the coords attribute
+        });
+    };
+}
+
+// Ensure that coordinates are updated when the page loads and when the window is resized
+window.onload = updateImageMapCoords;
+window.onresize = updateImageMapCoords;
+
+// Image map coordinate handling
 function updateImageMapCoordinates() {
-    const image = document.querySelector('#paper-arsenal-image');
+    const image = document.getElementById('paper-arsenal-image');
     if (!image) return;
     
-    // Original working desktop coordinates
-    const originalCoords = {
-        'williamson': '4,217,266,238',
-        'catley': '4,256,266,277',
-        'caldentey': '4,295,266,315',
-        'mead': '4,333,266,354',
-        'little': '4,362,266,381',
-        'mccabe': '4,401,266,420',
-        'rosa': '4,440,266,459',
-        'hurtig': '4,479,266,498',
-        'foord': '4,518,266,537'
-    };
-
-    const desktopWidth = 359;
+    const originalWidth = 359;
     const currentWidth = image.width;
+    const scale = currentWidth / originalWidth;
     
-    // Only scale if we're on a different width than desktop
-    if (currentWidth !== desktopWidth) {
-        const scale = currentWidth / desktopWidth;
-        
-        Object.entries(originalCoords).forEach(([player, coords]) => {
+    if (currentWidth !== originalWidth) {
+        Object.entries(originalCoordinates).forEach(([player, coords]) => {
             const area = document.querySelector(`area[alt="${player}"]`);
             if (area) {
-                // Split coordinates into array
                 const coordArray = coords.split(',').map(Number);
+                const verticalOffset = currentWidth < originalWidth ? -10 : 0;
                 
-                // Add a small vertical offset for mobile
-                const mobileOffset = currentWidth < desktopWidth ? -10 : 0;
-                
-                // Scale and adjust coordinates
                 const scaledCoords = [
-                    Math.round(coordArray[0] * scale),              // x1
-                    Math.round(coordArray[1] * scale) + mobileOffset, // y1
-                    Math.round(coordArray[2] * scale),              // x2
-                    Math.round(coordArray[3] * scale) + mobileOffset  // y2
+                    Math.round(coordArray[0] * scale),
+                    Math.round(coordArray[1] * scale) + verticalOffset,
+                    Math.round(coordArray[2] * scale),
+                    Math.round(coordArray[3] * scale) + verticalOffset
                 ].join(',');
                 
                 area.coords = scaledCoords;
@@ -208,12 +183,45 @@ function updateImageMapCoordinates() {
     }
 }
 
-// Call function when image loads and on window resize
+// Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
-    const image = document.querySelector('#paper-arsenal-image');
+    // Set up lyrics panel
+    const lyricsPanel = document.getElementById('lyrics-panel');
+    if (lyricsPanel) {
+        lyricsPanel.style.display = 'none';
+        lyricsPanel.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    }
+
+    // Set up close buttons
+    const closeButtons = document.querySelectorAll('#close-lyrics-panel');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', closeLyricsPanel);
+    });
+
+    // Set up image map handling
+    const image = document.getElementById('paper-arsenal-image');
     if (image) {
         image.addEventListener('load', updateImageMapCoordinates);
         window.addEventListener('resize', updateImageMapCoordinates);
         setTimeout(updateImageMapCoordinates, 500);
+    }
+});
+
+// Global click handlers
+window.addEventListener('click', function(event) {
+    // Handle expanded image clicks
+    const expandedImage = document.querySelector('.expanded-image-container.active');
+    if (expandedImage && !expandedImage.contains(event.target)) {
+        expandedImage.classList.remove('active');
+        stopSound();
+    }
+
+    // Handle lyrics panel clicks
+    const lyricsPanel = document.getElementById('lyrics-panel');
+    if (lyricsPanel && !lyricsPanel.contains(event.target)) {
+        lyricsPanel.style.display = 'none';
+        stopSound();
     }
 });

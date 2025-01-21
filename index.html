@@ -34,17 +34,17 @@
                     <area shape="rect" coords="4,390,266,415" href="#" alt="fridamaanum" target="_blank" onclick="handleAreaClick('fridamaanum', event); showLyrics('fridamaanum');">
                     <area shape="rect" coords="4,480,266,505" href="#" alt="wally" target="_blank" onclick="handleAreaClick('wally', event); showLyrics('wally');">
                     <area shape="rect" coords="4,450,266,475" href="#" alt="daphne" target="_blank" onclick="handleAreaClick('daphne', event); showLyrics('daphne');">
-                    <area shape="rect" coords="4,420,266,460" href="#" alt="Rosa" target="_blank" onclick="handleAreaClick('rosakafaji', event); showLyrics('rosakafaji');">-->
-                    <area shape="rect" coords="4,465,266,485" href="#" alt="Hurtig" target="_blank" onclick="handleAreaClick('soundhurtig', event); showLyrics('linahurtig');">
-                    <area shape="rect" coords="4,490,266,510" href="#" alt="Caitlin Foord" target="_blank" onclick="handleAreaClick('soundfoord', event); showLyrics('caitlinfoord');">
-                    <area shape="rect" coords="4,575,266,595" href="#" alt="Victoria Pelova" target="_blank" onclick="handleAreaClick('soundpelova', event); showLyrics('victoriapelova');">
+                    <area shape="rect" coords="4,420,266,460" href="#" alt="Rosa" target="_blank" onclick="handleAreaClick('rosakafaji', event); showLyrics('rosakafaji');">
+                    <area shape="rect" coords =4,490,266,520" alt="Hurtig" target="_blank" onclick="handleAreaClick('soundhurtig', event); showLyrics('linahurtig');">-->
+                    <area shape="rect" coords="4,490,266,510" href="#" alt="foord" target="_blank" onclick="handleAreaClick('soundfoord', event); showLyrics('caitlinfoord');">
+                    <!-- <area shape="rect" coords="4,510,266,540" alt="Victoria Pelova" target="_blank" onclick="handleAreaClick('soundpelova', event); showLyrics('victoriapelova');">
                     <area shape="rect" coords="" href="#" alt="Alessia Russo" target="_blank" onclick="handleAreaClick('soundrusso', event); showLyrics('russo');">
                     <area shape="rect" coords="4,640,266,655" href="#" alt="Stina" target="_blank" onclick="handleAreaClick('soundstina', event); showLyrics('stina');">
-                    <area shape="rect" coords="4,705,266,730" href="#" alt="Ilestedt" target="_blank" onclick="handleAreaClick('soundilestedt', event); showLyrics('amandailestedt');">
+                    <area shape="rect" coords="4,465,266,485" href="#" alt="Ilestedt" target="_blank" onclick="handleAreaClick('soundilestedt', event); showLyrics('amandailestedt');">-->
                 
                 </map>
                 <div class="pdf-link">
-                    <a href="./documents/songbookdec2024.pdf" target="_blank">Download the Arsenal Women's Songbook (PDF)</a>
+                    <a href="./documents/songbookJAN2025 .pdf" target="_blank">Download the Arsenal Women's Songbook (PDF)</a>
                 </div>
             </div>
         </div>
@@ -55,16 +55,12 @@
      <!-- Lyrics Section -->
      <div id="lyrics-panel" class="lyrics-panel">
         <div id="manuzinsberger-lyrics" class="lyrics" style="display:none;">
-            <div class="lyrics-header">
-                <h3>Manu Zinsberger Lyrics</h3>
-                <button id="play-button-manu" class="lyrics-button" onclick="playSong('soundmanu', this)">Play</button>
-            </div>
-            
-            
-            <p>
+        
                 <div class="lyrics-header">
     <h3>Manu Zinsberger Lyrics</h3>
-    <button id="play-button" class="lyrics-button" onclick="playSound('soundmau', event)">Play</button>
+    <button id="play-button" class="lyrics-button" onclick="playSound('soundmanu', event)">Play</button>
+    <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
 </div>
 
            
@@ -79,6 +75,8 @@
             <div class="lyrics-header">
                 <h3>Emily Fox Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundfox', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
               
@@ -97,6 +95,8 @@
             <div class="lyrics-header">
                 <h3>Lotte Wubben-Moy Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundlotte', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
              
@@ -112,6 +112,8 @@
             <div class="lyrics-header">
                 <h3>Laia Codina Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundcodina', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
            
@@ -125,7 +127,9 @@
         <div id="leahwilliamson-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3>Leah Williamson Lyrics</h3>
-                <button id="play-button" class="lyrics-button" onclick="playSound('soundwilliamson', event)">Play</button>
+                <button id="play-button" class="lyrics-button" onclick="playSound('soundleah', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
                
@@ -140,6 +144,8 @@
             <div class="lyrics-header">
                 <h3>Steph Catley Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundcatley', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
               
@@ -158,6 +164,8 @@
             <div class="lyrics-header">
                 <h3>Mariona Caldentey Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundcaldentey', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
                 
@@ -184,7 +192,9 @@
         <div id="bethmead-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3>Beth Mead Lyrics</h3>
-                <button id="play-button" class="lyrics-button" onclick="playSound('soundmead', event)">Play</button>
+                <button id="play-button" class="lyrics-button" onclick="playSound('soundbethmead', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
                 
@@ -212,6 +222,8 @@
             <div class="lyrics-header">
                 <h3>Kim Little Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundlittle', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
                 
@@ -228,6 +240,8 @@
             <div class="lyrics-header">
                 <h3>Katie McCabe Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundmccabe', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
                 
@@ -244,6 +258,8 @@
             <div class="lyrics-header">
                 <h3>Rosa Kafaji Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundrosa', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
                 
@@ -261,6 +277,8 @@
             <div class="lyrics-header">
                 <h3>Lina Hurtig Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundhurtig', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
             <p>
                 
@@ -276,6 +294,8 @@
             <div class="lyrics-header">
                 <h3>Caitlin Foord Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundfoord', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
            
             <p>
@@ -293,6 +313,8 @@
             <div class="lyrics-header">
                 <h3>Frida Leonhardsen Maanum Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundmaanum', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
            
             <p><strong>To the tune of ‘Heaven is the Place on Earth’ - Belinda Carlisle</strong><br>
@@ -348,6 +370,8 @@
             <div class="lyrics-header">
                 <h3>Victoria Pelova Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundpelova', event)">Play</button>
+                <button id="close-lyrics-panel" class="close-lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
            
             <p>
@@ -364,6 +388,8 @@
             <div class="lyrics-header">
                 <h3>Alessia Russo Lyrics</h3>
                 <button id="play-button" class="lyrics-button" onclick="playSound('soundrusso', event)">Play</button>
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
             </div>
            
             <p>
@@ -379,10 +405,12 @@
         </div>
 
     </div>
-    <div id="russo-lyrics" class="lyrics" style="display:none;">
+    <div id="stina-lyrics" class="lyrics" style="display:none;">
         <div class="lyrics-header">
-            <h3>Alessia Russo Lyrics</h3>
-            <button id="play-button" class="lyrics-button" onclick="playSound('soundrusso', event)">Play</button>
+            <h3>Stina Blackstenius Lyrics</h3>
+            <button id="play-button" class="lyrics-button" onclick="playSound('soundstina', event)">Play</button>
+            <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
         </div>
        
         <p>
@@ -395,10 +423,12 @@
             
         </p>
     </div>
-    <div id="stina-lyrics" class="lyrics" style="display:none;">
+    <div id="laura-lyrics" class="lyrics" style="display:none;">
         <div class="lyrics-header">
-            <h3>Stina Blackstenius Lyrics</h3>
-            <button id="play-button" class="lyrics-button" onclick="playSound('soundstina', event)">Play</button>
+            <h3>Laura Weinroither Lyrics</h3>
+            <button id="play-button" class="lyrics-button" onclick="playSound('soundlaura', event)">Play</button>
+            <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
         </div>
        
         <p>
@@ -420,6 +450,8 @@
         <div class="lyrics-header">
             <h3>Amanda Ilestedt Lyrics</h3>
             <button id="play-button" class="lyrics-button" onclick="playSound('soundilestedt', event)">Play</button>
+            <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+  
         </div>
        
         <p>
@@ -432,30 +464,12 @@
 
         </p>
     </div> 
-    <div id="stina-lyrics" class="lyrics" style="display:none;">
-        <div class="lyrics-header">
-            <h3>Stina Blackstenius Lyrics</h3>
-            <button id="play-button" class="lyrics-button" onclick="playSound('soundstina', event)">Play</button>
-        </div>
-       
-        <p>
-            <strong>To the tune of ‘Livin’ on a Prayer - Bon Jovi</strong><br>
-
-           
-            Oh, she walks on water, <br>
-            Ohhhh<br>
-            Laura Weinroither<br>
-            Take her on, <br>
-            She’s already caught ya,<br>
-            Ohhhhh <br>
-            Laura Weinroither!<br>
-            
-        </p>
-    </div> 
+    
     <div id="kyra-lyrics" class="lyrics" style="display:none;">
         <div class="lyrics-header">
             <h3>Kyra Cooney-Cross Lyrics</h3>
             <button id="play-button" class="lyrics-button" onclick="playSound('soundkyra', event)">Play</button>
+            <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
         </div>
        
         <p>
@@ -476,12 +490,6 @@
         
         
    
-    <!-- Lyrics buttons: Mute and Close -->
-    <div style="display: flex; justify-content: space-between; margin-top: 40px;">
-       
-        <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
-    </div>
-    
 </div>
     
    
@@ -496,18 +504,20 @@
     <audio id="soundcatley" src="./sounds/catleychant.mp3"></audio>
      <audio id="soundmccabe" src="./sounds/mccabechant.mp3"></audio>
     <!--<audio id="soundlotte" src="./sounds/lottechant.mp3"></audio>
-    <audio id="soundmanu" src="./sounds/manuchant.mp3"></audio>
-    <audio id="soundmead" src="./sounds/meadchant.mp3"></audio>
     <audio id="soundfoord2" src="./sounds/caitlinfoord2chant.mp3"></audio>
-    <audio id="soundwilliamson" src="./sounds/williamsonhant.mp3"></audio>-->
+    <audio id="soundmanu" src="./sounds/manuchant.mp3"></audio>-->
+    <audio id="soundmead" src="./sounds/bethmeadchant.mp3"></audio>
+    <audio id="soundwilliamson" src="./sounds/leahchant.mp3"></audio>
     <audio id="soundhurtig" src="./sounds/hurtigchant.mp3"></audio>
     <audio id="soundrosa" src="./sounds/rosachant.mp3"></audio>
     <audio id="soundwally" src="./sounds/wallychant.mp3"></audio>
     <audio id="sounddaphne" src="./sounds/daphnechant.mp3"></audio>
     <audio id="soundrusso" src="./sounds/russochant.mp3"></audio>
     <audio id="soundstina" src="./sounds/stinachant.mp3"></audio>
-    <audio id="soundkyra" src="./sounds/kyrachant.mp3"></audio>
+    <audio id="soundkyra" src="./sounds/kccchant.mp3"></audio>
     <audio id="soundpelova" src="./sounds/pelovachant.mp3"></audio>
+    <audio id="soundpelova" src="./sounds/maanumchant.mp3"></audio>
+    <audio id="soundpelova" src="./sounds/codinachant.mp3"></audio>
 
     <script>
         function scaleImageMap() {

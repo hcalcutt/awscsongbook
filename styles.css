@@ -10,6 +10,7 @@ body {
     position: relative; /* Ensure positioning for overlapping content */
     z-index: 1; /* Keep content above the background */
   }
+  
   img {
     display: block; /* Remove gaps around images */
     margin: 20px; /* Example margin */
@@ -322,6 +323,8 @@ h2.section-title, h3 {
 
 .lyrics {
     margin-bottom: 20px;
+    position: relative; /* Add this */
+    min-height: 50px;  /* Add this to ensure space for the button */
 }
 
 .lyrics h3 {
@@ -338,8 +341,8 @@ h2.section-title, h3 {
     border-radius: 2px;
     font-size: 16px;
     position: absolute;
-    bottom: 15px; /* Position it at the bottom */
-    right: 15px; /* Position it on the right */
+    bottom: 5px; /* Position it at the bottom */
+    right: 10px; /* Position it on the right */
     z-index: 1010; /* Ensure it's above other elements */
 }
 
@@ -349,15 +352,11 @@ h2.section-title, h3 {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
-    /* Adjusting the position and size of the close button on mobile */
     #close-lyrics-panel {
-        font-size: 14px; /* Smaller font size */
-        padding: 8px 16px; /* Adjust padding */
-        bottom: 1px; /* Keep button at the bottom */
-    }
-       .lyrics-panel {
-        width: 80%; /* Make the panel width smaller on mobile */
-        max-height: 80vh; /* Allow more space for other elements */
+        font-size: 14px;
+        padding: 8px 16px;
+        bottom: 10px; /* Increase this from 1px */
+        right: 10px;
     }
 }
 /* Ensure overflow content on the lyrics panel is scrollable */
