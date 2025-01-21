@@ -54,7 +54,7 @@ function showLyrics(lyricId) {
 
 let currentlyPlayingAudio = null;
 
-function playSong(audioId, button) {
+function playSound(audioId, button) {
     const audio = document.getElementById(audioId);
 
     // Stop currently playing audio if a new one is selected
