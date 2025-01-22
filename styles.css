@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
     margin: 0; /* Remove default margins */
-    background-image: url('./images/pink.jpg'); /* Replace with your image URL */
+    background-image: url(''); /* Replace with your image URL */
     background-repeat: repeat; /* Tiles the image */
     background-size: auto; /* Keeps the image at its original size */
     background-attachment: fixed; /* Makes the background stay in place while scrolling (optional) */
