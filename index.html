@@ -204,16 +204,21 @@
                 (Let me know you’re mine)<br>
             </p>
         </div>
+        
+       
         <div id="bethmead-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3>Beth Mead Lyrics</h3>
-                <button id="play-button" class="lyrics-button" onclick="playSound('soundbethmead', event)">Play</button>
-                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
-  
             </div>
-            <p>
-                
-                <strong> To the tune of ‘Freed from desire’ - Gala </strong><br>
+        
+            <!-- Lyrics Content -->
+            <div class="lyrics-content">
+                <p>
+                    <span style="display: flex; align-items: center; gap: 8px;">
+                        <strong> To the tune of ‘Freed from desire’ - Gala </strong><br>
+                        <button class="lyrics-button" onclick="playSound('soundmead', event)">Play</button>
+                    </span>
+                    
                 Beth Mead’s on fire, <br>
                 Your defence is terrified,<br> 
                 Beth Mead’s on fire, <br>
@@ -228,9 +233,31 @@
                 Na na na na na<br>
                 Na na na na na na na<br>
                 Na na na na na<br>
-            </p>
+                </p>
+                <hr>
+                <p>
+                    <span style="display: flex; align-items: center; gap: 8px;">
+                        <strong> To the tune of ‘Numa Numa’ – O-Zone </strong><br>
+                        <button class="lyrics-button" onclick="playSound('soundmead2', event)">Play</button>
+                    </span>
+                   
+            
+                    When you score you make the Arsenal sing<br>
+                    Meado on the wing<br>
+                    Meado, Meado on the wing<br>
+                    Every time you’re on the ball we know <br>
+                    There’s gonna be a goal<br>
+                    Superstar for Arsenal<br>
+                </p>
+            </div>
+        
+           
+        
+            <!-- Close Button -->
+            <div class="lyrics-footer">
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+            </div>
         </div>
-   
 
 
         <div id="kimlittle-lyrics" class="lyrics" style="display:none;">
@@ -308,23 +335,42 @@
         <div id="caitlinfoord-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3>Caitlin Foord Lyrics</h3>
-                <button id="play-button" class="lyrics-button" onclick="playSound('soundfoord', event)">Play</button>
-                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
-  
             </div>
+        
+            <!-- Lyrics Content -->
+            <div class="lyrics-content">
+                <p>
+                    <span style="display: flex; align-items: center; gap: 8px;">
+                        <strong>To the Tune of 'Voulez-Vous' – ABBA</strong>
+                        <button class="lyrics-button" onclick="playSound('soundfoord', event)">Play</button>
+                    </span>
+                    Caitlin Foord<br>
+                    Aha<br>
+                    Running Down the Wing<br>
+                    Aha<br>
+                    Hear the Arsenal Sing<br>
+                    Aha<br>
+                    And we're going to win the League<br>
+                </p>
+                <hr>
+                <p>
+                    <span style="display: flex; align-items: center; gap: 8px;">
+                        She's red, she's white
+                        <button class="lyrics-button" onclick="playSound('soundfoord2', event)">Play</button>
+                    </span>
+                    She loves the vegemite<br>
+                    Caitlin Foord, Caitlin Foord!<br>
+                </p>
+            </div>
+        
            
-            <p>
-               
-                <strong>To the Tune of ‘Voulez-Vous’ – ABBA</strong><br>
-                Caitlin Foord<br>
-                Aha<br>
-                Running Down the Wing<br>
-                Aha<br>
-                Hear the Arsenal Sing<br>
-                Aha<br>
-                And we’re going to win the League<br>
-            </p>
+        
+            <!-- Close Button -->
+            <div class="lyrics-footer">
+                <button id="close-lyrics-panel" class="lyrics-button" onclick="closeLyricsPanel()">Close</button>
+            </div>
         </div>
+        
         <div id="fridamaanum-lyrics" class="lyrics" style="display:none;">
             <div class="lyrics-header">
                 <h3>Frida Leonhardsen Maanum Lyrics</h3>
@@ -568,8 +614,8 @@
     <audio id="soundmanu" src="./sounds/manuchant.mp3"></audio>
     <audio id="soundstina" src="./sounds/stinachant.mp3"></audio>
     <audio id="soundwally" src="./sounds/wallychant.mp3"></audio>
-    <audio id="soundbethmead" src="./sounds/bethmeadchant1.mp3"></audio>
-    <audio id="soundbethmead2" src="./sounds/bethmeadchant2.mp3"></audio>
+    <audio id="soundmead" src="./sounds/bethmeadchant1.mp3"></audio>
+    <audio id="soundmead2" src="./sounds/bethmeadchant2.mp3"></audio>
     <audio id="soundleah" src="./sounds/leahchant.mp3"></audio>
     <audio id="soundhurtig" src="./sounds/hurtigchant.mp3"></audio>
     <audio id="soundrosa" src="./sounds/rosachant.mp3"></audio>
